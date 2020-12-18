@@ -7,6 +7,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { IntroComponent } from './intro/intro.component';
 import { IntroWithImageComponent } from './intro-with-image/intro-with-image.component';
+import { BecomeASupplierComponent } from './become-a-supplier/become-a-supplier.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { IntroWithImageComponent } from './intro-with-image/intro-with-image.com
     NavbarComponent,
     FooterComponent,
     IntroComponent,
-    IntroWithImageComponent
+    IntroWithImageComponent,
+    BecomeASupplierComponent
   ],
   imports: [
     BrowserModule,

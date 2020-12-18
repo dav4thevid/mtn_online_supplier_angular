@@ -1,0 +1,33 @@
+.container-fluid{
+  padding:8%;
+  background-color: #000;
+
+}
+
+.footer-text-header{
+  line-height: 1;
+  font-weight: 900;
+  font-family: MTNBrighterSans-MediumItalic,Century Gothic,Arial,sans-serif;
+  display: block;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 400;
+  transition: all .5s ease-in-out;
+  transition-property: color,font-family,font-weight;
+  // padding: 15px 30px;
+  color: #fff;
+}
+
+.footer-text-p{
+  // line-height: 1;
+  font-weight: 900;
+  font-family: MTNBrighterSans-MediumItalic,Century Gothic,Arial,sans-serif;
+  display: block;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 400;
+  transition: all .5s ease-in-out;
+  transition-property: color,font-family,font-weight;
+  // padding: 15px 30px;
+  color: #fff;
+}

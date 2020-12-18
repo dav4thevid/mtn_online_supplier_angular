@@ -6,10 +6,38 @@ nav li > a {
   color: #000;
   font-weight: 600;
   font-size: 14.5px;
-  padding: 20px;
+  padding: 25px;
   font-family: MTNBrighterSans-Medium, Century Gothic,Arial,sans-serif;;
 }
 
 a {
   font-size: 5;
+}
+
+form > input {
+  background-color: transparent;
+  border-radius: 20px;
+  border-color: #000;
+  border-width: 2px;
+}
+
+
+
+.input-icons i {
+  position: absolute;
+}
+
+.input-icons {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 40px;
+}
+
+
+.searchbar {
+  padding-right:20px
 }

@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: false,
+  environmentName: 'production',
+  baseUrl: 'https://api.tenor.com/v1/'
 };

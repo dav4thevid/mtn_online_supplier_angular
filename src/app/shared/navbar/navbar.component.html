@@ -1,4 +1,4 @@
- <nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg">
   <a class="navbar-brand" href="#">
     <img src="../../../assets/1200px-MTN_Logo.png" alt="Mtn Logo" width="40"/></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,17 +34,48 @@
         <a class="nav-link " href="#">Contact Us</a>
       </li>
       <div style="max-width:40px;margin: 10px">
-        <form class="form-inline my-2 my-lg-0 input-icons">
+        <form class="form-inline my-2 my-lg-0 input-icons"
+        [formGroup]="searchForm" (keyup.enter)=" searchForm.valid && searchForm.dirty && search($event) && showModal"
+        >
           <i class="fa fa-search icon"></i>
-          <input class="form-control mr-sm-2 searchbar" type="search"  aria-label="Search">
+          <input formControlName="q" class="form-control mr-sm-2 searchbar" type="search"  placeholder = "Search" aria-label="Search" >
         </form>
       </div>
-
     </ul>
-
-
   </div>
 </nav>
+<!-- <button type="button" class="btn btn-primary" (click) = "showModal=true" data-toggle="modal" data-target="#myModal">
+  Open modal
+</button> -->
+
+<div class="modal" id="myModal" [ngClass] = "{'show': showModal}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal" (click) = "showModal=false">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click) = "showModal=false" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
 
 
 

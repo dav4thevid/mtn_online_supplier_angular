@@ -1,0 +1,11 @@
+
+
+{
+  "api/*": {
+    "target" : "https://api.giphy.com/v1/",
+    "secure" : "false",
+    "changeOrigin": "true",
+    "logLevel": "debug",
+    "pathRewrite": {"^/api": "https://api.giphy.com/v1"}
+  }
+}

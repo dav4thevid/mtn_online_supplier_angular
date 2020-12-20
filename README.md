@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
-##GUIDE
+## GUIDE
 
 After cloning this project, open your terminal, CD to the clone project, and install the project modules with (npm install or yarn install).
 

@@ -21,11 +21,13 @@ form > input {
   border-width: 2px;
   text-indent:20px;
   outline: none;
+
 }
 
 input:focus{
   border-color: #000;
   outline: none;
+  
 }
 
 .modal.show{

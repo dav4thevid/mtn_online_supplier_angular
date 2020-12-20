@@ -2,9 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
+##GUIDE
+
+After cloning this project, open your terminal, CD to the clone project, and install the project modules with (npm install or yarn install).
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+##Search for GIFs
+
+Click on the top right search form, input your search query and press enter key to search.
 
 ## Code scaffolding
 

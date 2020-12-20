@@ -1,5 +1,7 @@
 export const environment = {
   production: false,
   environmentName: 'production',
-  baseUrl: 'https://api.tenor.com/v1/'
+  baseUrlTenor: 'https://api.tenor.com/v1/',
+  baseUrlGiphy: 'https://api.giphy.com/v1/'
+
 };

@@ -12,9 +12,16 @@ import { Router } from '@angular/router';
 
 
 
-
+//tenor
 var apikey = "WEFVEHVQMWTU";
 var lmt = 10;
+
+
+//giphy
+var giphyKey = "RSqt4yIW1nj82pXkiL5Fr6uGqItlWSlP";
+var limit = "15";
+var offset = "0";
+var rating = 'g';
 
 @Component({
   selector: "app-navbar",
@@ -23,7 +30,8 @@ var lmt = 10;
 })
 export class NavbarComponent implements OnInit {
   environment = "api.giphy.com/v1/gifs/";
-  searchEndpoint: string;
+  searchEndpointTenor: string;
+  searchEndpointGiphy: string;
   searchForm: FormGroup;
   searchModel = new SearchModel();
   searchResults = {};
@@ -40,14 +48,17 @@ export class NavbarComponent implements OnInit {
   };
 
   constructor(private http: HttpClient, private fb: FormBuilder, private router: Router, private modalService: NgbModal
-    // private modalService: NgbModal
+
      )
      {
-    // this.searchEndpoint = environment.baseUrl + "gifs/random";
-    // this.searchEndpoint = "gifs/search/";
-    // this.searchEndpoint = "https://api.tenor.com/v1/search";
-    this.searchEndpoint = environment.baseUrl + "search?q=";
+
+    // this.searchEndpointTenor = environment.baseUrlTenor + "search?q=";
+    this.searchEndpointGiphy = environment.baseUrlGiphy + "gifs/search?";
+
   }
+
+
+  // https://api.giphy.com/v1/gifs/search?api_key=RSqt4yIW1nj82pXkiL5Fr6uGqItlWSlP&q=boys&limit=25&offset=0&rating=g&lang=en
 
   ngOnInit() {
     this.createSearch();
@@ -71,19 +82,46 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  //Switch for Tenor API here 
+  // async search(event) {
+  //   // console.log(event.target.value.toString());
+  //  await this.http
+  //     .get(
+  //       this.searchEndpointTenor +
+  //         event.target.value +
+  //         "&key=" +
+  //         apikey +
+  //         "&limit=" +
+  //         lmt
+  //     )
+  //     .subscribe((gifData: any) => {
+  //       this.data.next(gifData.results);
+  //       // console.log(gifData.results);
+  //     }
+  //     );
+  //     this.modalPopUp();
+  // }
+
   async search(event) {
     // console.log(event.target.value.toString());
    await this.http
       .get(
-        this.searchEndpoint +
+        this.searchEndpointGiphy +
+          "api_key=" +
+          giphyKey +
+          "&q=" +
           event.target.value +
-          "&key=" +
-          apikey +
-          "&limit=" +
-          lmt
+          "&limit =" +
+          limit +
+          "&offset=" +
+          offset +
+          "&rating=" +
+          rating +
+          "&lang=en"
+
       )
       .subscribe((gifData: any) => {
-        this.data.next(gifData.results);
+        this.data.next(gifData.data);
         // console.log(gifData.results);
       }
       );
@@ -91,3 +129,5 @@ export class NavbarComponent implements OnInit {
   }
 
 }
+
+

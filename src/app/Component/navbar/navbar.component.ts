@@ -82,7 +82,7 @@ export class NavbarComponent implements OnInit {
 
   }
 
-  //Switch for Tenor API here 
+  //Switch for Tenor API here
   // async search(event) {
   //   // console.log(event.target.value.toString());
   //  await this.http
@@ -102,6 +102,7 @@ export class NavbarComponent implements OnInit {
   //     this.modalPopUp();
   // }
 
+  
   async search(event) {
     // console.log(event.target.value.toString());
    await this.http
@@ -117,7 +118,7 @@ export class NavbarComponent implements OnInit {
           offset +
           "&rating=" +
           rating +
-          "&lang=en"
+          "&lang=en",
 
       )
       .subscribe((gifData: any) => {

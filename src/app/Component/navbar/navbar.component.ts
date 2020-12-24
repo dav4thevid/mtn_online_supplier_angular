@@ -102,7 +102,7 @@ export class NavbarComponent implements OnInit {
   //     this.modalPopUp();
   // }
 
-  
+
   async search(event) {
     // console.log(event.target.value.toString());
    await this.http
@@ -119,7 +119,6 @@ export class NavbarComponent implements OnInit {
           "&rating=" +
           rating +
           "&lang=en",
-
       )
       .subscribe((gifData: any) => {
         this.data.next(gifData.data);

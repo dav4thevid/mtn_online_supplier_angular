@@ -8,9 +8,6 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { BehaviorSubject } from "rxjs";
 
-
-
-
 //giphy
 var giphyKey = "RSqt4yIW1nj82pXkiL5Fr6uGqItlWSlP";
 var limit = "15";
@@ -47,13 +44,8 @@ export class NavbarComponent implements OnInit {
 
      )
      {
-
-
     this.searchEndpointGiphy = environment.baseUrlGiphy + "gifs/search?";
-
   }
-
-
 
   ngOnInit() {
     this.createSearch();
@@ -68,7 +60,6 @@ export class NavbarComponent implements OnInit {
 		this.modalService.dismissAll();
 	}
 
-
   createSearch() {
     this.searchForm = this.fb.group({
       q: [this.searchModel.q, Validators.required],
@@ -76,7 +67,6 @@ export class NavbarComponent implements OnInit {
     });
 
   }
-
 
 
   search(event) {

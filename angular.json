@@ -75,6 +75,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "optimization": true,
             "browserTarget": "mtn-supplier:build"
           },
           "configurations": {

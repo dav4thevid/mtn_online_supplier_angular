@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 
 
 // import { ListGIFComponent } from './shared/list-gif/list-gif.component';
@@ -24,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ComponentModule
+    ComponentModule,
+    AnimateOnScrollModule.forRoot()
   ],
 
   // entryComponents: [ModalPopUpComponent],

@@ -30,6 +30,8 @@ export class NavbarComponent implements OnInit {
   closeResult = '';
   user = {name: 'David', profession: "coder"}
 
+  navbarCollapsed = true;
+
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json",
@@ -54,7 +56,13 @@ export class NavbarComponent implements OnInit {
   modalPopUp() {
 		const modalRef = this.modalService.open(ModalPopUpComponent);
     modalRef.componentInstance.data = this.data;
-	}
+  }
+
+
+
+toggleNavbarCollapse() {
+  this.navbarCollapsed = !this.navbarCollapsed;
+}
 
 	closePopUp() {
 		this.modalService.dismissAll();

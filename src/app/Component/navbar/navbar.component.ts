@@ -32,8 +32,8 @@ export class NavbarComponent implements OnInit {
   data = new BehaviorSubject<any>([]);
   closeResult = '';
   // user = {name: 'David', profession: "coder"}
-  isImageLoading;
-  imageToShow: any;
+  // isImageLoading;
+  // imageToShow: any;
 
   navbarCollapsed = true;
 
@@ -61,46 +61,46 @@ export class NavbarComponent implements OnInit {
   modalPopUp() {
 		const modalRef = this.modalService.open(ModalPopUpComponent);
     modalRef.componentInstance.data = this.data;
-    modalRef.componentInstance.image = this.imageToShow;
   }
 
-  getImageFromService(event) {
-    this.isImageLoading = true;
-    this.imageService.getImage(
-      this.searchEndpointGiphy +
-          "api_key=" +
-          giphyKey +
-          "&q=" +
-          event.target.value +
-          "&limit =" +
-          limit +
-          "&offset=" +
-          offset +
-          "&rating=" +
-          rating +
-          "&lang=en",
-    ).subscribe(data => {
-      this.createImageFromBlob(data);
-      this.isImageLoading = false;
-      this.modalPopUp();
-    }, error => {
-      this.isImageLoading = false;
-      console.log(error);
-    });
-}
+  // getImageFromService(event) {
+  //   this.isImageLoading = true;
+  //   this.imageService.getImage(
+  //     this.searchEndpointGiphy +
+  //         "api_key=" +
+  //         giphyKey +
+  //         "&q=" +
+  //         event.target.value +
+  //         "&limit =" +
+  //         limit +
+  //         "&offset=" +
+  //         offset +
+  //         "&rating=" +
+  //         rating +
+  //         "&lang=en",
+  //   ).subscribe(gifData => {
+  //     this.data.next(gifData);
+  //     this.createImageFromBlob(gifData);
+  //     this.isImageLoading = false;
+  //     this.modalPopUp();
+  //   }, error => {
+  //     this.isImageLoading = false;
+  //     console.log(error);
+  //   });
+// }
 
 
 
-createImageFromBlob(image: Blob) {
-  let reader = new FileReader();
-  reader.addEventListener("load", () => {
-     this.imageToShow = reader.result;
-  }, false);
+// createImageFromBlob(image: Blob) {
+//   let reader = new FileReader();
+//   reader.addEventListener("load", () => {
+//      this.imageToShow = reader.result;
+//   }, false);
 
-  if (image) {
-     reader.readAsDataURL(image);
-  }
-}
+//   if (image) {
+//      reader.readAsDataURL(image);
+//   }
+// }
 
 
 toggleNavbarCollapse() {
@@ -120,29 +120,29 @@ toggleNavbarCollapse() {
   }
 
 
-//   search(event){
-//    this.http
-//       .get(
-//         this.searchEndpointGiphy +
-//           "api_key=" +
-//           giphyKey +
-//           "&q=" +
-//           event.target.value +
-//           "&limit =" +
-//           limit +
-//           "&offset=" +
-//           offset +
-//           "&rating=" +
-//           rating +
-//           "&lang=en",
-//           { responseType: 'blob' }
-//       )
-//       .subscribe((gifData: any) => {
-//         this.data.next(gifData.data);
-//       }
-//       );
-//       this.modalPopUp();
-//   }
+  search(event){
+   this.http
+      .get(
+        this.searchEndpointGiphy +
+          "api_key=" +
+          giphyKey +
+          "&q=" +
+          event.target.value +
+          "&limit =" +
+          limit +
+          "&offset=" +
+          offset +
+          "&rating=" +
+          rating +
+          "&lang=en",
+        
+      )
+      .subscribe((gifData: any) => {
+        this.data.next(gifData.data);
+      }
+      );
+      this.modalPopUp();
+  }
 
 }
 

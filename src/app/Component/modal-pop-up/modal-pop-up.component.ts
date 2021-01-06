@@ -8,12 +8,14 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 })
 export class ModalPopUpComponent implements OnInit {
   @Input() public data;
+  @Input() public image;
   constructor(
     private modalService: NgbModal,
   ) { }
 
   ngOnInit() {
     console.log(this.data);
+    console.log(this.image);
   }
 
   dismissPopUp() {

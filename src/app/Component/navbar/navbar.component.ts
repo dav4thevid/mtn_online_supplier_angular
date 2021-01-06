@@ -21,6 +21,7 @@ var rating = 'g';
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.scss"],
 })
+
 export class NavbarComponent implements OnInit {
   environment = "api.giphy.com/v1/gifs/";
   searchEndpointTenor: string;
@@ -29,11 +30,10 @@ export class NavbarComponent implements OnInit {
   searchModel = new SearchModel();
   searchResults = {};
   data = new BehaviorSubject<any>([]);
-  datas = [];
   closeResult = '';
   // user = {name: 'David', profession: "coder"}
   isImageLoading;
-
+  imageToShow: any;
 
   navbarCollapsed = true;
 
@@ -61,6 +61,7 @@ export class NavbarComponent implements OnInit {
   modalPopUp() {
 		const modalRef = this.modalService.open(ModalPopUpComponent);
     modalRef.componentInstance.data = this.data;
+    modalRef.componentInstance.image = this.imageToShow;
   }
 
   getImageFromService(event) {
@@ -88,7 +89,7 @@ export class NavbarComponent implements OnInit {
     });
 }
 
-imageToShow: any;
+
 
 createImageFromBlob(image: Blob) {
   let reader = new FileReader();
@@ -119,29 +120,29 @@ toggleNavbarCollapse() {
   }
 
 
-  search(event){
-   this.http
-      .get(
-        this.searchEndpointGiphy +
-          "api_key=" +
-          giphyKey +
-          "&q=" +
-          event.target.value +
-          "&limit =" +
-          limit +
-          "&offset=" +
-          offset +
-          "&rating=" +
-          rating +
-          "&lang=en",
-          { responseType: 'blob' }
-      )
-      .subscribe((gifData: any) => {
-        this.data.next(gifData.data);
-      }
-      );
-      this.modalPopUp();
-  }
+//   search(event){
+//    this.http
+//       .get(
+//         this.searchEndpointGiphy +
+//           "api_key=" +
+//           giphyKey +
+//           "&q=" +
+//           event.target.value +
+//           "&limit =" +
+//           limit +
+//           "&offset=" +
+//           offset +
+//           "&rating=" +
+//           rating +
+//           "&lang=en",
+//           { responseType: 'blob' }
+//       )
+//       .subscribe((gifData: any) => {
+//         this.data.next(gifData.data);
+//       }
+//       );
+//       this.modalPopUp();
+//   }
 
 }
 

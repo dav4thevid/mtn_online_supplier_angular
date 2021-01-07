@@ -2,24 +2,8 @@
   <div class = "row">
     <div class = "col-md-6 img-container" *ngFor="let d of data | async">
       <img [src]="d.images.preview_gif.url" class="card-img-top img-fluid">
-      <p class="card-title">{{d.title}}</p>
+      <!-- <p class="card-title">{{d.title}}</p> -->
     </div>
   </div>
 
-<!-- <mat-grid-list cols="2" rowHeight="7:1">
-  <mat-grid-tile>
-    <u>test</u>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <u>test</u>
-  </mat-grid-tile>
-  <ng-container>
-    <mat-grid-tile *ngFor="let d of data | async">
-      <img [src]="d.images.preview_gif.url" class="card-img-top img-fluid">
-      {{d.title}}
-    </mat-grid-tile>
-  </ng-container>
-</mat-grid-list> -->
-
-<!-- [src]="(user$ | async).profile_photo || 'assets/antcorp/avatar.svg'" -->
 

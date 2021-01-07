@@ -1,0 +1,11 @@
+.img-container {
+    display:flex;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    background-color: rgb(255, 204, 0);
+    margin-right:auto;
+    margin-left: auto;
+  }
+  .img-container img{
+  width:50%;
+  }

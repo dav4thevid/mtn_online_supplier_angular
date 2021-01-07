@@ -11,6 +11,7 @@ import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 // import { ListGIFComponent } from './shared/list-gif/list-gif.component';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { MatGridListModule } from '@angular/material';
 
 // import { ModalPopUpComponent } from './shared/modal-pop-up/modal-pop-up.component';
 
@@ -21,6 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
 
   imports: [
+    // MatGridListModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

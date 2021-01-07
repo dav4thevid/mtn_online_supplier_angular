@@ -9,6 +9,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { BehaviorSubject, Observable } from "rxjs";
 import {ImageserviceService} from '../../Services/imageservice.service';
+import { map, catchError } from 'rxjs/operators';
+import { Directive,HostListener ,ChangeDetectorRef} from '@angular/core';
 
 //giphy
 var giphyKey = "RSqt4yIW1nj82pXkiL5Fr6uGqItlWSlP";
@@ -30,6 +32,7 @@ export class NavbarComponent implements OnInit {
   searchModel = new SearchModel();
   searchResults = {};
   data = new BehaviorSubject<any>([]);
+  // data$ = new BehaviorSubject<any>({});
   closeResult = '';
   // user = {name: 'David', profession: "coder"}
   // isImageLoading;
@@ -48,7 +51,9 @@ export class NavbarComponent implements OnInit {
       private http: HttpClient,
       private fb: FormBuilder,
       private modalService: NgbModal,
-      private imageService: ImageserviceService
+      // private imageService: ImageserviceService,
+      private cdr: ChangeDetectorRef,
+    // private modalComponent: ModalPopUpComponent
      )
      {
     this.searchEndpointGiphy = environment.baseUrlGiphy + "gifs/search?";
@@ -62,6 +67,7 @@ export class NavbarComponent implements OnInit {
 		const modalRef = this.modalService.open(ModalPopUpComponent);
     modalRef.componentInstance.data = this.data;
   }
+
 
   // getImageFromService(event) {
   //   this.isImageLoading = true;
@@ -91,25 +97,10 @@ export class NavbarComponent implements OnInit {
 
 
 
-// createImageFromBlob(image: Blob) {
-//   let reader = new FileReader();
-//   reader.addEventListener("load", () => {
-//      this.imageToShow = reader.result;
-//   }, false);
-
-//   if (image) {
-//      reader.readAsDataURL(image);
-//   }
-// }
-
-
 toggleNavbarCollapse() {
   this.navbarCollapsed = !this.navbarCollapsed;
 }
 
-	closePopUp() {
-		this.modalService.dismissAll();
-	}
 
   createSearch() {
     this.searchForm = this.fb.group({
@@ -119,30 +110,72 @@ toggleNavbarCollapse() {
 
   }
 
-
   search(event){
-   this.http
-      .get(
-        this.searchEndpointGiphy +
-          "api_key=" +
-          giphyKey +
-          "&q=" +
-          event.target.value +
-          "&limit =" +
-          limit +
-          "&offset=" +
-          offset +
-          "&rating=" +
-          rating +
-          "&lang=en",
+    this.http
+       .get(
+         this.searchEndpointGiphy +
+           "api_key=" +
+           giphyKey +
+           "&q=" +
+           event.target.value +
+           "&limit =" +
+           limit +
+           "&offset=" +
+           offset +
+           "&rating=" +
+           rating +
+           "&lang=en",
+
+       )
+       .subscribe((gifData: any) => {
+         this.data.next(gifData.data);
         
-      )
-      .subscribe((gifData: any) => {
-        this.data.next(gifData.data);
-      }
-      );
-      this.modalPopUp();
-  }
+       }
+       );
+       this.modalPopUp();
+   }
+
+
+  // search(event){
+  //  this.http
+  //     .get(
+  //       this.searchEndpointGiphy +
+  //         "api_key=" +
+  //         giphyKey +
+  //         "&q=" +
+  //         event.target.value +
+  //         "&limit =" +
+  //         limit +
+  //         "&offset=" +
+  //         offset +
+  //         "&rating=" +
+  //         rating +
+  //         "&lang=en",
+
+  //     ).pipe(map(datas => {
+  //       const result = datas['datas'];
+  //       result.forEach(data => data[data].url =  "api_key=" +
+  //       giphyKey +
+  //       "&q=" +
+  //       event.target.value +
+  //       "&limit =" +
+  //       limit +
+  //       "&offset=" +
+  //       offset +
+  //       "&rating=" +
+  //       rating +
+  //       "&lang=en" + data[data].url );
+  //       return result;
+  //     }))
+  //     .subscribe(
+  //       res => { this.data.next(res.data);
+  //           console.log(this.data)
+  //       },
+  //       err => { console.log(err); },
+  //       () => { console.log(this.data); }
+  //     );
+  //     this.modalPopUp();
+  // }
 
 }
 

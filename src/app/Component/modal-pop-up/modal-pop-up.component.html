@@ -1,41 +1,18 @@
-<!-- <div class=" my-5 popup">
-	<div class="text-center" id="invite-modal">
-		<div id="closePopup" (click)="dismissPopUp()">
-			<i class="fas fa-times"></i>
-		</div>
 
-		<div class="popup-header"><br />Invite with Antcorp</div>
-		<div class="popup-body">
-			Earn rewards by inviting your friends to join you
-		</div>
-		<div class="line"></div>
-		<div class="invite">
-			Share your invite code
-
-		</div>
-	</div>
-</div> -->
-
-<!-- <img [src]="imageToShow"
-     alt="Place image title"
-     *ngIf="!isImageLoading; else noImageFound">
-<ng-template #noImageFound>
-     <img src="fallbackImage.png" alt="Fallbackimage">
-</ng-template> -->
-<!-- d.embed_url -->
 <div class = "container" *ngFor="let d of data | async">
   <div class = "row">
     <div class = "col-12 col-6">
     </div>
     <div class = "col-12 col-6">
       <div class="card">
-        <img src="{{d.embed_url}}" class="card-img-top img-fluid">
+        <img [src]="d.images.preview_gif.url" class="card-img-top img-fluid">
         <div class="card-body">
           <h5 class="card-title">{{d.title}}</h5>
         </div>
-       
       </div>
     </div>
   </div>
 </div>
+
+<!-- [src]="(user$ | async).profile_photo || 'assets/antcorp/avatar.svg'" -->
 

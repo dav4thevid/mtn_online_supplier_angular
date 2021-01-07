@@ -24,7 +24,6 @@ export class ModalPopUpComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.data);
-    console.log(this.data[0].images)
   }
 
 

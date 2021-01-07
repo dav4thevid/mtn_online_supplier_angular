@@ -2,7 +2,7 @@
   <div class = "row">
     <div class = "col-md-6 img-container" *ngFor="let d of data | async">
       <img [src]="d.images.preview_gif.url" class="card-img-top img-fluid">
-      <!-- <p class="card-title">{{d.title}}</p> -->
+      <p class="card-title">{{(d.title.length>15)? (d.title | slice:0:15)+ '...' : (d.title)}}</p>
     </div>
   </div>
 
